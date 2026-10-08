@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Rocket</title>
+<meta name="description" content="Paper Rocket, çocuklar için reklamsız ve internetsiz çalışan, güvenli eğitim uygulamaları geliştirir.">
+<meta property="og:title" content="Paper Rocket">
+<meta property="og:description" content="Çocuklar için merak uyandıran, reklamsız ve güvenli eğitim uygulamaları.">
+<meta property="og:image" content="https://zkryauntmz.github.io/paper-rocket/img/paylasim.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#161F62">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #161F62;
+    --night-deep: #0F1550;
+    --night-glow: #26348F;
+    --paper: #FFF6E5;
+    --paper-fold: #F1E4CB;
+    --tangerine: #FF7A3D;
+    --tangerine-deep: #D9561F;
+    --sun: #FFC93C;
+    --ink: #1B2366;
+    --ink-soft: #4A5285;
+    --page: var(--paper);
+    --text: var(--ink);
+    --text-soft: var(--ink-soft);
+    --surface: #FFFFFF;
+    --line: #E6D7BA;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0D1240;
+      --text: #FFF6E5;
+      --text-soft: #C4C8E8;
+      --surface: #161D57;
+      --line: #2A3478;
+      --paper-fold: #1D2566;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: "Lexend", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero: the night sky the rocket flies through */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    color: var(--paper);
+    background: radial-gradient(120% 90% at 70% 30%, var(--night-glow), var(--night) 55%, var(--night-deep));
+  }
+  .hero .wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    min-height: min(640px, 92vh);
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+  .brand-line { display: flex; align-items: center; gap: 12px; font-weight: 500; opacity: .85; margin: 0 0 28px; }
+  .brand-line img { width: 34px; height: 34px; }
+  h1 {
+    font-size: clamp(48px, 8.4vw, 104px);
+    line-height: .98;
+    letter-spacing: -0.035em;
+    margin: 0 0 22px;
+    font-weight: 700;
+  }
+  .hero p.lead { font-size: clamp(18px, 2.2vw, 22px); max-width: 30ch; margin: 0; color: #DCDFF7; }
+  .rocket { position: relative; justify-self: center; width: min(420px, 100%); }
+  .rocket img { width: 100%; height: auto; display: block; filter: drop-shadow(0 18px 24px rgba(5, 8, 40, .45)); }
+  .trail { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .trail path { fill: none; stroke: var(--paper); stroke-opacity: .38; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 10 12; }
+  .star { position: absolute; width: 18px; height: 18px; color: var(--paper); opacity: .8; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .rocket img { animation: lift 1.4s cubic-bezier(.2, .7, .2, 1) both, hover 6s ease-in-out 1.4s infinite; }
+    .trail { animation: fade 1.6s ease-out both; }
+    @keyframes lift { from { transform: translate(-40px, 60px) rotate(-4deg); opacity: 0; } to { transform: none; opacity: 1; } }
+    @keyframes hover { 50% { transform: translate(4px, -8px); } }
+    @keyframes fade { from { opacity: 0; } }
+  }
+
+  section { padding: 88px 0; }
+  h2 { font-size: clamp(30px, 4vw, 42px); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 14px; }
+  .section-lead { color: var(--text-soft); max-width: 58ch; margin: 0 0 44px; }
+
+  /* App */
+  .app {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 40px;
+  }
+  .app-head { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+  .app-head img { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 6px 16px rgba(27, 35, 102, .18); }
+  .app-head h3 { font-size: 30px; margin: 0; line-height: 1.1; }
+  .app-head span { color: var(--text-soft); font-size: 15px; }
+  .app p { margin: 0 0 18px; }
+  .app ul { margin: 0 0 26px; padding-left: 20px; color: var(--text-soft); }
+  .app li { margin-bottom: 6px; }
+  .app li::marker { color: var(--tangerine); }
+  .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--night); color: var(--paper);
+    padding: 12px 20px; border-radius: 14px; font-weight: 500; font-size: 15px;
+  }
+  .status .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--sun); }
+  .app .privacy { display: inline-block; margin-left: 16px; font-size: 15px; color: var(--text-soft); }
+  .shots { display: flex; gap: 14px; justify-content: center; }
+  .shots img { width: 31%; max-width: 190px; height: auto; border-radius: 16px; box-shadow: 0 10px 24px rgba(15, 21, 80, .22); }
+  .shots img:nth-child(2) { transform: translateY(-18px); }
+
+  /* Promises: each marked with a folded paper corner */
+  .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; list-style: none; padding: 0; margin: 0; }
+  .promises li { position: relative; padding-top: 30px; border-top: 2px solid var(--line); }
+  .promises li::before {
+    content: ""; position: absolute; top: -2px; left: 0; width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--tangerine) 50%, var(--tangerine-deep) 50%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .promises h3 { font-size: 21px; margin: 0 0 8px; }
+  .promises p { margin: 0; color: var(--text-soft); }
+
+  .contact { background: var(--paper-fold); }
+  .contact p { max-width: 60ch; margin: 0; color: var(--text-soft); }
+  footer { background: var(--night-deep); color: #C4C8E8; font-size: 15px; padding: 28px 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+  footer a { color: var(--paper); }
+
+  @media (max-width: 820px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .hero .wrap { grid-template-columns: 1fr; min-height: 0; padding-top: 32px; padding-bottom: 48px; gap: 24px; }
+    .rocket { width: min(280px, 72%); order: -1; justify-self: end; }
+    section { padding: 60px 0; }
+    .app { grid-template-columns: 1fr; padding: 24px; gap: 32px; border-radius: 22px; }
+    .app .privacy { display: block; margin: 16px 0 0; }
+    .promises { grid-template-columns: 1fr; gap: 28px; }
+    .trail { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="trail" viewBox="0 0 1200 640" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -20 600 C 260 640, 420 470, 620 520 S 820 560, 860 430"/>
+  </svg>
+  <svg class="star" style="left:46%;top:14%" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 0 12.8 7.2 20 10 12.8 12.8 10 20 7.2 12.8 0 10 7.2 7.2z"/></svg>
+  <svg class="star" style="left:90%;top:80%;width:13px" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 0 12.8 7.2 20 10 12.8 12.8 10 20 7.2 12.8 0 10 7.2 7.2z"/></svg>
+  <svg class="star" style="left:8%;top:12%;width:12px" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 0 12.8 7.2 20 10 12.8 12.8 10 20 7.2 12.8 0 10 7.2 7.2z"/></svg>
+  <div class="wrap">
+    <div>
+      <p class="brand-line"><img src="img/favicon.png" alt=""> Bağımsız uygulama stüdyosu</p>
+      <h1>Paper Rocket</h1>
+      <p class="lead">Çocuklar için merak uyandıran, reklamsız ve güvenli eğitim uygulamaları yapıyoruz.</p>
+    </div>
+    <div class="rocket"><img src="img/roket.png" width="720" height="720" alt="Katlanmış kâğıttan turuncu burunlu bir roket"></div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Uygulamalarımız</h2>
+      <p class="section-lead">Her uygulamamız çocuğun kendi başına keşfedebileceği, ebeveynin içi rahat edebileceği şekilde tasarlanır.</p>
+
+      <article class="app">
+        <div>
+          <div class="app-head">
+            <img src="img/zipir-go.png" width="256" height="256" alt="Zıpır Go simgesi">
+            <div>
+              <h3>Zıpır Go</h3>
+              <span>4–10 yaş arası çocuklar için</span>
+            </div>
+          </div>
+          <p>Maskotumuz Zıpır ile her gün kısa bir ders: öğren, dinle, oyna, test et ve ödülünü al. Tamamen Türkçe, sesli anlatımlı.</p>
+          <ul>
+            <li>Matematik, alfabe, İngilizce, hayvanlar ve daha fazlası</li>
+            <li>Hafızadan ritme 7 eğitici mini oyun, rozetler ve seviyeler</li>
+            <li>Haftalık özet ve ekran süresi ayarı içeren ebeveyn paneli</li>
+          </ul>
+          <span class="status"><span class="dot"></span>Yakında Google Play'de</span>
+          <a class="privacy" href="https://zkryauntmz.github.io/zipir-go-gizlilik/">Gizlilik politikası</a>
+        </div>
+        <div class="shots">
+          <img src="img/ekran-1-home.jpg" width="540" height="960" loading="lazy" alt="Zıpır Go ana ekranı: bugünün dersi">
+          <img src="img/ekran-3-games.jpg" width="540" height="960" loading="lazy" alt="Zıpır Go oyunlar ekranı">
+          <img src="img/ekran-4-badges.jpg" width="540" height="960" loading="lazy" alt="Zıpır Go rozetler ekranı">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Sözümüz</h2>
+      <p class="section-lead">Çocuklar için yaptığımız her şeyde bu üç kurala uyarız.</p>
+      <ul class="promises">
+        <li>
+          <h3>Reklam yok</h3>
+          <p>Uygulamalarımızda reklam, dikkat dağıtan teklif veya gizli satın alma bulunmaz.</p>
+        </li>
+        <li>
+          <h3>İnternet gerekmez</h3>
+          <p>Her şey cihazın içinde çalışır. Çocuğunuz dış bağlantılara yönlendirilmez.</p>
+        </li>
+        <li>
+          <h3>Veri toplanmaz</h3>
+          <p>İlerleme yalnızca cihazda saklanır. Kişisel bilgi istenmez, kimseyle paylaşılmaz.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>İletişim</h2>
+      <p>Soru, öneri veya geri bildiriminiz için Google Play'deki Paper Rocket geliştirici sayfasında yer alan e-posta adresine yazabilirsiniz. Her mesajı okuyoruz.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Paper Rocket</span>
+    <a href="https://zkryauntmz.github.io/zipir-go-gizlilik/">Zıpır Go gizlilik politikası</a>
+  </div>
+</footer>
+
+</body>
+</html>
